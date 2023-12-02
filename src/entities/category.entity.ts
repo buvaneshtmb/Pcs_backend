@@ -1,8 +1,11 @@
 import { 
     Entity, BaseEntity, Column, PrimaryGeneratedColumn ,CreateDateColumn 
     , UpdateDateColumn,
-    ManyToOne
+    ManyToOne,
+    OneToMany
 } from 'typeorm'
+
+import { ProductEntity } from './product.entity'
 
 export enum Flags{
     N = 'N',
@@ -18,29 +21,7 @@ export class CategoryEntity extends BaseEntity{
     @Column()
     name : string
 
-    @Column()
-    subname : string
-
-    @Column()
-    image : string
-
-    @Column()
-    size : string
-
-    @Column("simple-array")
-    likes: number[]
-
-    // @Column({ type: 'varchar', length: 255, default: '[]' })
-    // likes: number[];
-
-
-    // @Column(
-    //     {
-    //     type : 'enum',
-    //     enum : Flags,
-    //     default :Flags.N
-    // }
-    // )
-    // likes : number
+    @OneToMany(() => ProductEntity,(product)=> product.category)
+    product : ProductEntity
 
 }

@@ -33,7 +33,7 @@ export class UserEntity extends BaseEntity{
         enum : Flags,
         default : Flags.N
     })
-    checkforwhatsapp : Boolean
+    checkforwhatsapp : Flags
 
     @Column()
     email : string

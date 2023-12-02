@@ -19,6 +19,6 @@ export class LoginEntity extends BaseEntity{
     @UpdateDateColumn()
     updatedAt: Date;
 
-    @ManyToOne(()=>UserEntity, (user) => user.id)
+    @ManyToOne(() => UserEntity, (user) => user.id)
     user : UserEntity
 }

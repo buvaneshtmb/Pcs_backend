@@ -11,14 +11,14 @@ export class CategoryController {
     ) {}
 
     @ApiOperation({ summary : "Get All Categories"})
-    @Get('')
-    async categories(){
-        return await this.categoryService.categories()
+    @Get('/:category')
+    async categories(@Param('category') category : string){
+        return await this.categoryService.categories(category)
     }
 
     @ApiOperation({ summary : "Update Likes and DisLikes"})
     @Put('/:user_id')
-    async updatelikes(@Param('user_id') user_id : string ,@Body() CategoryDto: CategoryDto){
+    async updatelikes(@Param('user_id') user_id : string , @Body() CategoryDto: CategoryDto){
         return await this.categoryService.updatelikes(user_id , CategoryDto)
     }
 }

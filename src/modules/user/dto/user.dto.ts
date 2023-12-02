@@ -6,6 +6,8 @@ import {
     } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
+import { Flags } from "src/entities/user.entity";
+
 export class UserDto{
 
     @ApiProperty({ description : "User Name", example : "Buvanesh"})
@@ -18,7 +20,7 @@ export class UserDto{
 
     @ApiProperty({ description : "Check for Whatsapp", example : false})
     @IsString()
-    checkforwhatsapp : Boolean
+    checkforwhatsapp : Flags
 
     @ApiProperty({ description : "Email ", example : "buvaneshtmb@gmail.com"})
     @IsEmail()
