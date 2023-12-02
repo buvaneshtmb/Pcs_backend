@@ -12,15 +12,14 @@ export class CategoryService {
         ) {}
 
     async categories(){
-        const category = await this.dataSource.query(`
-        select * from category`)
+        const category = await this.dataSource.query(`select * from category`)
         return {
             "statusCode" : 200,
             data : category
         }
     }
 
-    async updatelikes(user_id ,CategoryDto : CategoryDto ){
+    async updatelikes(user_id : any ,CategoryDto : CategoryDto ){
 
         const category = await CategoryEntity.findOne({where : {id : Number(CategoryDto.Category_id)}});
 

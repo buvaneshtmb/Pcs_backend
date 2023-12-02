@@ -15,8 +15,8 @@ async function bootstrap() {
   );
 
   const options = new DocumentBuilder()
-      .setTitle(`First App`)
-      .setDescription(`The Back-end API documentation for First App`)
+      .setTitle(`LHome`)
+      .setDescription(`The Back-end API documentation for LHome App`)
       .setVersion('1.0')
       // .addBearerAuth({ type: 'apiKey', name: 'Authorization', in: 'header' })
       .build();
