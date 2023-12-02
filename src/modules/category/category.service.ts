@@ -13,20 +13,25 @@ export class CategoryService {
         ) {}
 
     async categories(category : string){
-        const data = await this.dataSource.query(
-            `select t2.id, t2.name, t2.subname, t2.image, t2.size, t2.likes, t2.trending, t2.description
-            from category as t1 join product as t2 on t1.id = t2.categoryId
-             where t1.name like '%${category}%'`
-            )
-        return {
-            "statusCode" : 200,
-             data
+        try {
+            const data = await this.dataSource.query(
+                `select t2.id, t2.name, t2.subname, t2.image, t2.size, t2.likes, t2.trending, t2.description
+                from category as t1 join product as t2 on t1.id = t2.categoryId
+                 where t1.name like '%${category}%'`
+                )
+            return {
+                "statusCode" : 200,
+                 data
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 
     async updatelikes(user_id : any ,CategoryDto : CategoryDto ){
 
-        const product = await ProductEntity.findOne({where : {id : Number(CategoryDto.Category_id)}});
+        try {
+            const product = await ProductEntity.findOne({where : {id : Number(CategoryDto.Category_id)}});
 
         const getvalue = product.likes.includes(user_id)
 
@@ -40,5 +45,9 @@ export class CategoryService {
         product.likes.push(user_id);
 
         return await product.save();
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
