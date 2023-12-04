@@ -18,7 +18,7 @@ export class UserDto{
     @IsString()
     phone_number : string
 
-    @ApiProperty({ description : "Check for Whatsapp", example : false})
+    @ApiProperty({ description : "Check for Whatsapp", example : "N"})
     @IsString()
     checkforwhatsapp : Flags
 

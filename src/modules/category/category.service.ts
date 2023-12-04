@@ -33,9 +33,9 @@ export class CategoryService {
         try {
             const product = await ProductEntity.findOne({where : {id : Number(CategoryDto.Category_id)}});
 
-        const getvalue = product.likes.includes(user_id)
+        const hasLike = product.likes.includes(user_id)
 
-        if (getvalue){
+        if (hasLike){
             const updatedLikes = product?.likes?.filter(likeId => likeId !== user_id);
             product.likes = updatedLikes;
 

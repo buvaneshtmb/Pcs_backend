@@ -4,13 +4,10 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
-// import {TodosModule} from './modules/todos/todos.module'
 import { UserModule } from './modules/user/user.module';
-import { UserLoginModule } from './modules/user-login/user-login.module';
 import { CategoryModule } from './modules/category/category.module';
-// import { AuthModule } from './modules/auth/auth.module';
-// import { ProfileModule } from './modules/profile/profile.module';
 import { TwilioModule } from 'nestjs-twilio';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
@@ -28,8 +25,8 @@ import { TwilioModule } from 'nestjs-twilio';
     // }),
     TypeOrmModule.forRoot(typeOrmConfig),
     UserModule,
-    UserLoginModule,
-    CategoryModule
+    CategoryModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

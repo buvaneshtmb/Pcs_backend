@@ -10,7 +10,7 @@ import {
     ManyToOne,
     Generated
 } from 'typeorm'
-import { LoginEntity } from './login.entity'
+import { OtpEntity } from './otp.entity'
 
 export enum Flags{
     N = 'N',
@@ -47,6 +47,6 @@ export class UserEntity extends BaseEntity{
     @UpdateDateColumn()
     updatedAt: Date;
 
-    @OneToMany(() => LoginEntity,(otp)=>otp.user)
-    otp : LoginEntity
+    @OneToMany(() => OtpEntity,(otp)=>otp.user)
+    otp : OtpEntity
 }
