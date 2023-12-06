@@ -8,6 +8,9 @@ import { UserModule } from './modules/user/user.module';
 import { CategoryModule } from './modules/category/category.module';
 import { TwilioModule } from 'nestjs-twilio';
 import { AuthModule } from './modules/auth/auth.module';
+import { JobModule } from './modules/job/job.module';
+import { MulterModule } from '@nestjs/platform-express';
+
 
 
 @Module({
@@ -19,6 +22,7 @@ import { AuthModule } from './modules/auth/auth.module';
       accountSid: "ACf9698e4a8943f1ea95fd4f32def97272",
       authToken: "1395931125543aca5d0d39c61a84d375",
     }),
+    MulterModule,
     // TwilioModule.forRoot({
     //   accountSid: process.env.TWILIO_ACCOUNT_SID,
     //   authToken: process.env.TWILIO_AUTH_TOKEN,
@@ -26,7 +30,8 @@ import { AuthModule } from './modules/auth/auth.module';
     TypeOrmModule.forRoot(typeOrmConfig),
     UserModule,
     CategoryModule,
-    AuthModule
+    AuthModule,
+    JobModule,
   ],
   controllers: [AppController],
   providers: [AppService],

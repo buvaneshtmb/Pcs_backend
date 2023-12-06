@@ -7,7 +7,7 @@ import {
     UpdateDateColumn,
     OneToMany,
     ManyToMany,
-    ManyToOne,
+    ManyToOne, 
     Generated
 } from 'typeorm'
 import { OtpEntity } from './otp.entity'
@@ -15,6 +15,11 @@ import { OtpEntity } from './otp.entity'
 export enum Flags{
     N = 'N',
     Y = 'Y'
+}
+
+export enum Roles{
+    ADMIN = "Admin",
+    USER = "User"
 }
 
 @Entity({ name : 'users'})
@@ -40,6 +45,13 @@ export class UserEntity extends BaseEntity{
 
     @Column()
     pincode : string
+
+    @Column({
+        type : 'enum',
+        enum : Roles,
+        default : Roles.USER
+    })
+    role : string
 
     @CreateDateColumn()
     createdAt: Date;

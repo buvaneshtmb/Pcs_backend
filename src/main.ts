@@ -13,7 +13,6 @@ async function bootstrap() {
     }
     ),
   );
-
   const options = new DocumentBuilder()
       .setTitle(`LHome`)
       .setDescription(`The Back-end API documentation for LHome App`)
@@ -23,7 +22,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('/api', app, document);
-  const port = 8080
+  const port = 8000
   console.log("Running port-------->",port)
   app.enableCors()
   await app.listen(port);
