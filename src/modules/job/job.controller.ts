@@ -5,7 +5,6 @@ import { Response, response } from 'express';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express'
 import { ApplicantDto } from './dto/applicant.dto';
-
 @ApiTags('job')
 @Controller('job')
 export class JobController {

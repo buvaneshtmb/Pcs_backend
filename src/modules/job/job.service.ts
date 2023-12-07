@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
-import { ApplicantEntity } from 'src/entities/applicant.entity';
+import { ApplicantEntity } from 'src/entities/applicant.entity'; 
 import { ApplicantDto } from './dto/applicant.dto';
 import { JobRequirementEntity } from 'src/entities/JobRequirement.entity';
 
