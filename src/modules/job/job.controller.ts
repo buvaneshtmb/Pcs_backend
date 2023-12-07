@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Res, Req, UploadedFiles ,UploadedFile, UseInterceptors, Body} from '@nestjs/common';
+import { Controller, Post, Get, Res, Req, UploadedFiles ,UploadedFile, UseInterceptors, Body, Param} from '@nestjs/common';
 import { JobService } from './job.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Response, response } from 'express';
@@ -19,12 +19,14 @@ export class JobController {
         return this.jobservice.getJob()
     }
 
-    @ApiOperation({ summary: "Get all the JobRequirement" })
-    @Post('')
+    @ApiOperation({ summary: "Applied for the Job" })
+    @Post(':requirementId')
     @UseInterceptors(FilesInterceptor('file'),)
-    async getFile(@UploadedFiles() files : Express.Multer.File, @Req() req : Request , @Body() applicantDto : ApplicantDto ){
-        console.log(req)
-        return this.jobservice.getFile(files, req, applicantDto)
-    }
+    async getFile(  @Param('requirementId') requirementId : string,
+                    @UploadedFiles() files : Express.Multer.File, 
+                    @Req() req : Request, @Body() applicantDto : ApplicantDto
+                ){
+        return this.jobservice.getFile(requirementId, files, req, applicantDto)
+                }
 
 }

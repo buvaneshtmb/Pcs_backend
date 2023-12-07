@@ -2,7 +2,7 @@ import {
     Entity, BaseEntity, Column, PrimaryGeneratedColumn ,CreateDateColumn 
     , UpdateDateColumn, BeforeInsert , BeforeUpdate , ManyToOne
 } from 'typeorm'
-import { JobRequirementEntity } from './JobRequirement .entity'
+import { JobRequirementEntity } from './JobRequirement.entity'
 
 export enum Flags{
     N = 'N',
@@ -38,7 +38,7 @@ export class ApplicantEntity extends BaseEntity{
     @Column()
     expectedCtc : string
 
-    @Column()
+    @Column({ default : null})
     preferredLocation : string
 
     @Column({
@@ -48,6 +48,6 @@ export class ApplicantEntity extends BaseEntity{
     })
     NoticePeriod : Flags
 
-    @ManyToOne( () =>JobRequirementEntity, (business) => business.id )
-    business :  JobRequirementEntity
+    @ManyToOne( () =>JobRequirementEntity, (jobRequirement) => jobRequirement.id )
+    jobRequirement :  JobRequirementEntity
 }

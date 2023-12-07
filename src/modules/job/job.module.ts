@@ -4,6 +4,9 @@ import { JobService } from './job.service';
 import { MulterModule } from '@nestjs/platform-express';
 import * as multer from 'multer';
 import { extname } from 'path';
+import { ApplicantEntity } from 'src/entities/applicant.entity';
+import { JobRequirementEntity } from 'src/entities/JobRequirement.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 
 
@@ -25,6 +28,11 @@ import { extname } from 'path';
         },
       }),
     }),
+    TypeOrmModule.forFeature([
+      ApplicantEntity ,
+      JobRequirementEntity
+    ])
+    
   ],
   controllers: [JobController],
   providers: [JobService]

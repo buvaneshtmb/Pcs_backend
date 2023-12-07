@@ -3,7 +3,7 @@ import {
     , UpdateDateColumn, BeforeInsert , BeforeUpdate , OneToMany
 } from 'typeorm'
 
-import { JobRequirementEntity } from './JobRequirement .entity'
+import { JobRequirementEntity } from './JobRequirement.entity'
 
 @Entity({ name : "businessdepartment" })
 export class BusinessDepartmentEntity extends BaseEntity{

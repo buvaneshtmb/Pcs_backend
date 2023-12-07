@@ -34,6 +34,6 @@ export class JobRequirementEntity  extends BaseEntity{
     @ManyToOne(() => BusinessDepartmentEntity , (business) => business.id)
     department : BusinessDepartmentEntity
 
-    @OneToMany( () => ApplicantEntity, (applicant) => applicant.business )
+    @OneToMany( () => ApplicantEntity, (applicant) => applicant.jobRequirement )
     applicant : ApplicantEntity
 }
